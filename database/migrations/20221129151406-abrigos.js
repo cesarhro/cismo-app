@@ -37,8 +37,13 @@ module.exports = {
         allowNull: false,
       },
 
-      coordenadas: {
-        type: Sequelize.GEOMETRY,
+      latitude: {
+        type: Sequelize.BIGINT,
+        allowNull: false,
+      },
+
+      longitude: {
+        type: Sequelize.BIGINT,
         allowNull: false,
       },
     });

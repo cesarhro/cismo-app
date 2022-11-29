@@ -45,11 +45,17 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 
-    coordenadas: {
-      field: "coordenadas",
-      type: Sequelize.GEOMETRY,
+    latitude: {
+      field: "latitude",
+      type: Sequelize.BIGINT,
       allowNull: false,
-    }
+    },
+
+    longitude: {
+      field: "longitude",
+      type: Sequelize.BIGINT,
+      allowNull: false,
+    },
   });
 
   return abrigos;
