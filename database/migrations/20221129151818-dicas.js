@@ -5,6 +5,7 @@ module.exports = {
       id: {
         type: Sequelize.BIGINT,
         primaryKey: true,
+        autoIncrement: true,
       },
 
       tipo: {
@@ -14,6 +15,16 @@ module.exports = {
 
       url: {
         type: Sequelize.STRING(500),
+        allowNull: false,
+      },
+
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+
+      updatedAt: {
+        type: Sequelize.DATE,
         allowNull: false,
       },
     });

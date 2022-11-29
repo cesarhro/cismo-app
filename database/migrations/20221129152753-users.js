@@ -5,6 +5,8 @@ module.exports = {
       id: {
         type: Sequelize.BIGINT,
         primaryKey: true,
+        autoIncrement: true
+
       },
 
       nome_completo: {
@@ -19,6 +21,16 @@ module.exports = {
 
       senha: {
         type: Sequelize.STRING(200),
+        allowNull: false,
+      },
+
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+
+      updatedAt: {
+        type: Sequelize.DATE,
         allowNull: false,
       },
     });

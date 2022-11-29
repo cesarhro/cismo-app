@@ -5,11 +5,12 @@ module.exports = {
       id: {
         type: Sequelize.BIGINT,
         primaryKey: true,
+        autoIncrement: true
       },
 
       user_id: {
         type: Sequelize.BIGINT,
-        allowNull: false
+        allowNull: false,
       },
 
       tipo: {
@@ -19,6 +20,16 @@ module.exports = {
 
       telefone: {
         type: Sequelize.STRING(30),
+        allowNull: false,
+      },
+
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+
+      updatedAt: {
+        type: Sequelize.DATE,
         allowNull: false,
       },
     });

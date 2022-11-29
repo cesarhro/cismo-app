@@ -5,6 +5,7 @@ module.exports = {
       id: {
         type: Sequelize.BIGINT,
         primaryKey: true,
+        autoIncrement: true,
       },
 
       nome: {
@@ -44,6 +45,16 @@ module.exports = {
 
       longitude: {
         type: Sequelize.BIGINT,
+        allowNull: false,
+      },
+
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+
+      updatedAt: {
+        type: Sequelize.DATE,
         allowNull: false,
       },
     });
