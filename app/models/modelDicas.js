@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       field: "id",
       type: Sequelize.BIGINT,
       primaryKey: true,
+      autoIncrement: true,
     },
     tipo: {
       field: "tipo",
@@ -18,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       field: "telurlefone",
       type: Sequelize.STRING(500),
       allowNull: false,
-    }
+    },
   });
 
   return contatos;

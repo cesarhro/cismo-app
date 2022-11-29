@@ -7,11 +7,12 @@ module.exports = (sequelize, DataTypes) => {
       field: "id",
       type: Sequelize.BIGINT,
       primaryKey: true,
+      autoIncrement: true,
     },
 
-    nome: {
-      field: "nome",
-      type: Sequelize.STRING(200),
+    user_id: {
+      field: "user_id",
+      type: Sequelize.BIGINT,
       allowNull: false,
     },
 
@@ -25,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       field: "telefone",
       type: Sequelize.STRING(30),
       allowNull: false,
-    }
+    },
   });
 
   return contatos;

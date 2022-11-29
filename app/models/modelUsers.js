@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       field: "id",
       type: Sequelize.BIGINT,
       primaryKey: true,
+      autoIncrement: true,
     },
 
     nome_completo: {
