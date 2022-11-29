@@ -5,25 +5,25 @@ module.exports = (sequelize, DataTypes) => {
   const contatos = sequelize.define("contatos", {
     id: {
       field: "id",
-      type: DataTypes.BIGINT,
+      type: Sequelize.BIGINT,
       primaryKey: true,
     },
 
     nome: {
       field: "nome",
-      type: DataTypes.STRING(200),
+      type: Sequelize.STRING(200),
       allowNull: false,
     },
 
     tipo: {
       field: "tipo",
-      type: DataTypes.ENUM("autoridade", "pessoal"),
+      type: Sequelize.ENUM("autoridade", "pessoal"),
       allowNull: false,
     },
 
     telefone: {
       field: "telefone",
-      type: DataTypes.STRING(30),
+      type: Sequelize.STRING(30),
       allowNull: false,
     }
   });

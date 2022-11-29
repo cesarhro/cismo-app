@@ -3,17 +3,17 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("dicas", {
       id: {
-        type: DataTypes.BIGINT,
+        type: Sequelize.BIGINT,
         primaryKey: true,
       },
 
       tipo: {
-        type: DataTypes.ENUM("autoridades", "equipe"),
+        type: Sequelize.ENUM("autoridades", "equipe"),
         allowNull: false,
       },
 
       url: {
-        type: DataTypes.STRING(500),
+        type: Sequelize.STRING(500),
         allowNull: false,
       },
     });

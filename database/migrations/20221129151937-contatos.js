@@ -3,22 +3,22 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("contatos", {
       id: {
-        type: DataTypes.BIGINT,
+        type: Sequelize.BIGINT,
         primaryKey: true,
       },
 
       user_id: {
-        type: DataTypes.BIGINT,
+        type: Sequelize.BIGINT,
         allowNull: false
       },
 
       tipo: {
-        type: DataTypes.ENUM("autoridade", "pessoal"),
+        type: Sequelize.ENUM("autoridade", "pessoal"),
         allowNull: false,
       },
 
       telefone: {
-        type: DataTypes.STRING(30),
+        type: Sequelize.STRING(30),
         allowNull: false,
       },
     });

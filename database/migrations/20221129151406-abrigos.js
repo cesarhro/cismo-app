@@ -3,42 +3,42 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("abrigos", {
       id: {
-        type: DataTypes.BIGINT,
+        type: Sequelize.BIGINT,
         primaryKey: true,
       },
 
       nome: {
-        type: DataTypes.STRING(200),
+        type: Sequelize.STRING(200),
         allowNull: false,
       },
 
       tipo: {
-        type: DataTypes.ENUM("abrigo", "ponto_de_apoio"),
+        type: Sequelize.ENUM("abrigo", "ponto_de_apoio"),
         allowNull: false,
       },
 
       status: {
-        type: DataTypes.ENUM("ativo", "desativado"),
+        type: Sequelize.ENUM("ativo", "desativado"),
         allowNull: false,
       },
 
       rua: {
-        type: DataTypes.STRING(200),
+        type: Sequelize.STRING(200),
         allowNull: false,
       },
 
       bairro: {
-        type: DataTypes.STRING(100),
+        type: Sequelize.STRING(100),
         allowNull: false,
       },
 
       cep: {
-        type: DataTypes.STRING(20),
+        type: Sequelize.STRING(20),
         allowNull: false,
       },
 
       coordenadas: {
-        type: DataTypes.GEOMETRY,
+        type: Sequelize.GEOMETRY,
         allowNull: false,
       },
     });
