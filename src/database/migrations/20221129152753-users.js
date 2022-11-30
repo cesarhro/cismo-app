@@ -8,7 +8,6 @@ module.exports = {
         autoIncrement: true
 
       },
-
       nome_completo: {
         type: Sequelize.STRING(250),
         allowNull: false,

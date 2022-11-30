@@ -10,6 +10,12 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
     },
 
+    nome: {
+      field: "nome",
+      type: Sequelize.STRING(200),
+      allowNull: false,
+    },
+
     user_id: {
       field: "user_id",
       type: Sequelize.BIGINT,

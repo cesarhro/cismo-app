@@ -5,7 +5,12 @@ module.exports = {
       id: {
         type: Sequelize.BIGINT,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
+      },
+
+      nome: {
+        type: Sequelize.STRING(200),
+        allowNull: false,
       },
 
       user_id: {

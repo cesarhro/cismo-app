@@ -33,11 +33,6 @@ module.exports = {
         allowNull: false,
       },
 
-      cep: {
-        type: Sequelize.STRING(20),
-        allowNull: false,
-      },
-
       latitude: {
         type: Sequelize.BIGINT,
         allowNull: false,

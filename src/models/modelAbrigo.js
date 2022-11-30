@@ -40,12 +40,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 
-    cep: {
-      field: "cep",
-      type: Sequelize.STRING(20),
-      allowNull: false,
-    },
-
     latitude: {
       field: "latitude",
       type: Sequelize.BIGINT,

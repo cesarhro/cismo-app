@@ -4,15 +4,18 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "cesarhro",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-validator": "^6.14.2",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
     "sequelize": "^6.26.0"

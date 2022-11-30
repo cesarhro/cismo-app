@@ -2,7 +2,7 @@
 const { Sequelize, Model, DataTypes, DATEONLY } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  const contatos = sequelize.define("abrigos", {
+  const dicas = sequelize.define("dicas", {
     id: {
       field: "id",
       type: Sequelize.BIGINT,
@@ -16,11 +16,11 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     url: {
-      field: "telurlefone",
+      field: "url",
       type: Sequelize.STRING(500),
       allowNull: false,
     },
   });
 
-  return contatos;
+  return dicas;
 };
