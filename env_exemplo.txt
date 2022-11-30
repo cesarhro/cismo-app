@@ -1,0 +1,10 @@
+#Conexão com o BD
+DB_USER=cismoadm
+DB_PWD=cismo123
+DB_NAME=cismodb
+DB_HOST=localhost
+DB_PORT=5432
+DB_DIALECT=postgres
+
+#Porta do servidor local
+SERVER_PORT=4000
