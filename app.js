@@ -10,3 +10,5 @@ app.use("/", routers);
 app.listen(5000, () => {
   console.log(`Servidor online`);
 });
+
+module.exports = app;
