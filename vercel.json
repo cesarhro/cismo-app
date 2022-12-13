@@ -1,7 +1,15 @@
 {
-  "git": {
-    "deploymentEnabled": {
-      "main": true
+  "version": 2,
+  "builds": [
+    {
+      "src": "./src/app.js",
+      "use": "@now/node"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "./src/app.js"
+    }
+  ]
 }

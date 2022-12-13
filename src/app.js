@@ -12,8 +12,8 @@ sequelize.sync().then(() => {
   console.log("BD conectado");
 });
 
-app.listen(process.env.SERVER_PORT, () => {
-  console.log(
-    `Servidor online no endereço - http://localhost:${process.env.SERVER_PORT}`
-  );
+app.listen(5000, () => {
+  console.log(`Servidor online`);
 });
+
+module.exports = app;
