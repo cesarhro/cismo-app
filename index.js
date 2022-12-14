@@ -5,12 +5,15 @@ const express = require("express");
 const routes = require("./src/api/index");
 const app = express();
 const db = require("./src/models");
+const cookieParser = require("cookie-parser");
 
-app.listen(3000, () => console.log("Servidor iniciado na porta 3000"));
+app.listen(process.env.PORT || 3000, () =>
+  console.log(`Server on in PORT ${process.env.PORT || 3000}`)
+);
 db.sequelize
   .sync()
   .then(() => {
-    console.log(`Database conectado: ${process.env.DB_NAME}`);
+    console.log(`DB on: ${process.env.DB_NAME}`);
   })
   .catch((err) => {
     console.log("Falha na conexão: " + err.message);
@@ -25,5 +28,8 @@ app.use(
     ],
   })
 );
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(routes);

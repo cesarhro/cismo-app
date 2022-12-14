@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 class UserService {
   #saltRounds = 4;
@@ -23,8 +24,10 @@ class UserService {
   async create(userDTO) {
     const email = await this.user.findOne({
       where: { email: userDTO.email },
+      raw: true,
     });
 
+    console.log(email);
     if (!userDTO) throw Error("Missing Data Exception");
 
     if (email) throw Error("Esse usuário já existe");
@@ -32,7 +35,58 @@ class UserService {
     userDTO.senha = bcrypt.hashSync(userDTO.senha, this.#salt);
 
     try {
-      await this.user.create(userDTO);
+      const user = await this.user.create(userDTO);
+
+      if (user) {
+        let token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
+          expiresIn: 1 * 24 * 60 * 60 * 1000,
+        });
+
+        res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60, httpOnly: true });
+        console.log("user", JSON.stringify(user, null, 2));
+        console.log(token);
+        return res.status(201).send(user);
+      } else {
+        return res.status(409).send("Details are not correct");
+      }
+    } catch (e) {
+      console.error(e.message);
+      throw e;
+    }
+  }
+
+  async login(userDTO) {
+    try {
+      const email = await this.user.findOne({
+        where: { email: userDTO.email },
+      });
+
+      if (!userDTO) throw Error("Missing Data Exception");
+
+      if (email) {
+        const isSame = await bcrypt.compare(userDTO.senha, email.senha);
+
+        if (isSame) {
+          let token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
+            expiresIn: 1 * 24 * 60 * 60 * 1000,
+          });
+
+          //if password matches wit the one in the database
+          //go ahead and generate a cookie for the user
+          res.cookie("jwt", token, {
+            maxAge: 1 * 24 * 60 * 60,
+            httpOnly: true,
+          });
+          console.log("user", JSON.stringify(user, null, 2));
+          console.log(token);
+          //send user data
+          return res.status(201).send(user);
+        } else {
+          return res.status(401).send("Authentication failed");
+        }
+      } else {
+        return res.status(401).send("Authentication failed");
+      }
     } catch (e) {
       console.error(e.message);
       throw e;

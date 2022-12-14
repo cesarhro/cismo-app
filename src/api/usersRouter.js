@@ -5,19 +5,23 @@ const UserService = require("../services/userService");
 
 const userService = new UserService(users); // Busca
 
-router.get("/:id", async (req, res) => {
-  try {
-    const userById = await userService.getUserById(req.params.id);
-    res.status(200).json(userById);
-  } catch (e) {
-    res.status(404).json(e.message);
-  }
-});
-
 router.post("/create", async (req, res) => {
   try {
     await userService.create({
       nome_completo: req.body.nome_completo,
+      email: req.body.email,
+      senha: req.body.senha,
+    });
+
+    res.status(201).send("User cadastrado com sucesso");
+  } catch (e) {
+    res.status(400).json(e.message);
+  }
+});
+
+router.get("/login", async (req, res) => {
+  try {
+    await userService.login({
       email: req.body.email,
       senha: req.body.senha,
     });
