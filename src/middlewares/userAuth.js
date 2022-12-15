@@ -1,9 +1,11 @@
 const express = require("express");
-const { users } = require("../models");
+const db = require("../models");
+
+const User = db.users;
 
 const saveUser = async (req, res, next) => {
   try {
-    const emailcheck = await users.findOne({
+    const emailcheck = await User.findOne({
       where: {
         email: req.body.email,
       },
