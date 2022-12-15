@@ -1,6 +1,8 @@
 const bcrypt = require("bcrypt");
-const { users } = require("../models");
+const db = require("../models/index");
 const jwt = require("jsonwebtoken");
+
+const User = db.users;
 
 const signup = async (req, res) => {
   try {
@@ -11,7 +13,7 @@ const signup = async (req, res) => {
       senha: await bcrypt.hash(senha, 10),
     };
 
-    const user = await users.create(data);
+    const user = await User.create(data);
 
     if (user) {
       let token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
@@ -34,7 +36,7 @@ const login = async (req, res) => {
   try {
     const { email, senha } = req.body;
 
-    const user = await users.findOne({ email });
+    const user = await User.findOne({ email });
 
     if (user) {
       const isSame = await bcrypt.compare(senha, user.senha);
