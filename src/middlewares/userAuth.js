@@ -1,5 +1,5 @@
 const express = require("express");
-const { users } = require("../Models");
+const { users } = require("../models");
 
 const saveUser = async (req, res, next) => {
   try {
