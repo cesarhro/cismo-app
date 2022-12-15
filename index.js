@@ -32,4 +32,4 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(routes);
+app.use("/", routes);
