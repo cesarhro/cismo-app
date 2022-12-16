@@ -2,8 +2,8 @@ require("dotenv").config();
 require("pg");
 module.exports = {
   development: {
-    username: "cismoadm",
-    password: "cismo123",
+    username: "postgres",
+    password: "123",
     database: "cismodb",
     host: "localhost",
     port: 5432,
@@ -11,8 +11,8 @@ module.exports = {
     logging: false,
   },
   test: {
-    username: "cismoadm",
-    password: "cismo123",
+    username: "postgres",
+    password: "123",
     database: "cismodb",
     host: "localhost",
     port: 5432,
