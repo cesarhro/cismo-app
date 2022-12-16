@@ -33,13 +33,8 @@ module.exports = {
         allowNull: false,
       },
 
-      latitude: {
-        type: Sequelize.BIGINT,
-        allowNull: false,
-      },
-
-      longitude: {
-        type: Sequelize.BIGINT,
+      url: {
+        type: Sequelize.STRING(400),
         allowNull: false,
       },
 

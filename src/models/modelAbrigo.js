@@ -40,15 +40,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 
-    latitude: {
-      field: "latitude",
-      type: Sequelize.BIGINT,
-      allowNull: false,
-    },
-
-    longitude: {
-      field: "longitude",
-      type: Sequelize.BIGINT,
+    url: {
+      field: "url",
+      type: Sequelize.STRING(400),
       allowNull: false,
     },
   });
